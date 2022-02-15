@@ -60,7 +60,7 @@ class EmployeeModel{
         ' "email": "$email",' +
         ' "password": "$password",' +
         ' "designation": "$designation",' +
-        ' "joiningdate": "$joiningdate",' +
+        ' "joiningdate": "$joiningdate"' +
         '}';
   }
 

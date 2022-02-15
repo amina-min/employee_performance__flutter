@@ -34,7 +34,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
     var model =EmployeeModel(name: name, username: username, email: email, password: password, designation: designation, joiningdate: joiningdate);
     String _body = model.toJson();
     try{
-      final response = await _http.postData('http://192.168.0.102:9002/employee/saveEmployee', _body);
+      final response = await _http.postData('http://192.168.0.102:9090/signup'
+          '', _body);
 
     }catch(e){
       log(e.toString());

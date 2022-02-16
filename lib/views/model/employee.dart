@@ -1,6 +1,4 @@
-class EmployeeModel{
-
-
+class EmployeeModel {
   late String name;
   late String username;
   late String email;
@@ -49,18 +47,6 @@ class EmployeeModel{
         ' password: $password,' +
         ' designation: $designation,' +
         ' joiningdate: $joiningdate,' +
-        '}';
-  }
-
-
-  String toJson() {
-    return '{' +
-        ' "name": "$name",' +
-        ' "username": "$username",' +
-        ' "email": "$email",' +
-        ' "password": "$password",' +
-        ' "designation": "$designation",' +
-        ' "joiningdate": "$joiningdate"' +
         '}';
   }
 

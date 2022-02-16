@@ -1,7 +1,6 @@
 import 'dart:developer';
 
-import 'package:emp_performance_tracker_flut/helper/http_helper.dart';
-import 'package:emp_performance_tracker_flut/views/model/employeeModel.dart';
+import 'package:emp_performance_tracker_flut/views/model/employee.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -14,7 +13,6 @@ class RegistrationPage extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<RegistrationPage> {
-  final _http = HttpHelper();
   final _nameController = TextEditingController();
   final _usernameController = TextEditingController();
   final _emailController = TextEditingController();
@@ -29,13 +27,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
     String password = _passwordController.value.text;
     String designation = _designationController.value.text ;
     String joiningdate = _joiningdateController.value.text ;
-
-
     var model =EmployeeModel(name: name, username: username, email: email, password: password, designation: designation, joiningdate: joiningdate);
-    String _body = model.toJson();
+
     try{
-      final response = await _http.postData('http://192.168.0.102:9090/signup'
-          '', _body);
+
 
     }catch(e){
       log(e.toString());
@@ -81,8 +76,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       labelText: "Username"
                   ),
                 ),
-
               ),
+
               Padding(
                 padding: const EdgeInsets.only(left: 12.0,right: 12,top: 15),
                 child: TextFormField(

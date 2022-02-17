@@ -16,7 +16,7 @@ Future<http.Response> signUp(EmployeeModel employee) async {
   if (response.statusCode == 200) {
     return response;
   } else {
-    throw Exception('Failed to load album');
+    throw Exception(response.body);
   }
 }
 

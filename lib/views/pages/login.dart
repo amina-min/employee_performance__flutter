@@ -23,16 +23,14 @@ class _LoginPageState extends State<LoginPage> {
   login() async {
     String email = _emailController.value.text;
     String password = _passwordController.value.text;
-    var employee =  EmployeePayload(email: email, password: password);
+    var employee = EmployeePayload(email: email, password: password);
     print(employee);
 
-
     signIn(employee).then((res) {
-
       Map<String, dynamic> map = jsonDecode(res.body);
 
       print(map['status']);
-      if(map['status'] == 'Success'){
+      if (map['status'] == 'Success') {
         Fluttertoast.showToast(
             msg: "Login Sucsess",
             toastLength: Toast.LENGTH_LONG,
@@ -41,10 +39,9 @@ class _LoginPageState extends State<LoginPage> {
             backgroundColor: Colors.green,
             textColor: Colors.white,
             fontSize: 16.0);
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Dashboard()));
-
-
-      }else {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Dashboard()));
+      } else {
         Fluttertoast.showToast(
             msg: "Login Failed",
             toastLength: Toast.LENGTH_LONG,
@@ -54,26 +51,16 @@ class _LoginPageState extends State<LoginPage> {
             textColor: Colors.white,
             fontSize: 16.0);
       }
-
     });
-
-
-
-
   }
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 40.0, bottom: 8),
+          const Padding(
+            padding: EdgeInsets.only(top: 60.0, bottom: 8),
             child: Text(
               "Login Here",
               style: TextStyle(
@@ -83,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 30.0, right: 30),
+            padding: const EdgeInsets.only(left: 60.0, right: 60),
             child: TextFormField(
               controller: _emailController,
               decoration: InputDecoration(
@@ -96,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 30.0, right: 30),
+            padding: const EdgeInsets.only(left: 60.0, right: 60),
             child: TextFormField(
               controller: _passwordController,
               decoration: InputDecoration(
@@ -108,20 +95,32 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: "Enter your Password"),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () {
-                  login();
-                  print(_emailController.value.text);
-                },
-                child: Text("Login")),
-          ),
           TextButton(
+            onPressed: () {
+              //forgot password screen
+            },
+            child: const Text('Forgot Password'),
+          ),
+          ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute( builder: (context) => RegistrationPage()));
+                login();
+                print(_emailController.value.text);
               },
-              child: Text("registration here"))
+              child: Text("Login")),
+          Padding(
+            padding: const EdgeInsets.only(left: 60.0),
+            child: Row(
+              children: [
+                Text('Does not have account?'),
+                TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => RegistrationPage()));
+                    },
+                    child: Text("registration here")),
+              ],
+            ),
+          )
         ],
       ),
     );

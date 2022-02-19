@@ -13,19 +13,13 @@ Future<http.Response> signUp(EmployeeModel employee) async {
   final response = await http.post(Uri.parse(registerApi),
       headers: requestHeaders, body: jsonEncode(employee.toMap()));
 
-  if (response.statusCode == 200) {
     return response;
-  } else {
-    throw Exception(response.body);
-  }
+
 }
 
 Future<http.Response> signIn(EmployeePayload employee) async {
   final response = await http.post(Uri.parse(loginApi),
       headers: requestHeaders, body: jsonEncode(employee.toMap()));
-  if (response.statusCode == 200) {
     return response;
-  } else {
-    throw Exception('Failed to load album');
-  }
+
 }

@@ -1,9 +1,9 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:emp_performance_tracker_flut/helper/http_helper.dart';
 import 'package:emp_performance_tracker_flut/views/model/employee_payload.dart';
 import 'package:emp_performance_tracker_flut/views/pages/dashbord.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -23,41 +23,43 @@ class _LoginPageState extends State<LoginPage> {
   login() async {
     String email = _emailController.value.text;
     String password = _passwordController.value.text;
-
     var employee =  EmployeePayload(email: email, password: password);
-
     print(employee);
 
+
     signIn(employee).then((res) {
-      print(res.body);
+
+      Map<String, dynamic> map = jsonDecode(res.body);
+
+      print(map['status']);
+      if(map['status'] == 'Success'){
+        Fluttertoast.showToast(
+            msg: "Login Sucsess",
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 3,
+            backgroundColor: Colors.green,
+            textColor: Colors.white,
+            fontSize: 16.0);
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Dashboard()));
+
+
+      }else {
+        Fluttertoast.showToast(
+            msg: "Login Failed",
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 3,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0);
+      }
 
     });
 
-    try {
-      log(employee.toString());
-      Fluttertoast.showToast(
-          msg: "Login Sucsess",
-          toastLength: Toast.LENGTH_LONG,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 3,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 16.0);
-
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Dashboard()));
 
 
-    } catch (e) {
-      log(e.toString());
-      Fluttertoast.showToast(
-          msg: "Login Faild",
-          toastLength: Toast.LENGTH_LONG,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 3,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 16.0);
-    }
+
   }
 
 

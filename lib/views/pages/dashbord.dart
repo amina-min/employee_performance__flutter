@@ -17,12 +17,17 @@ class _DashboardState extends State<Dashboard> {
         ),
         body: ListView(
           children: [
-            Text(
-              "Login Here",
-              style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blueGrey),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Text(
+                  "Employee details ",
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueGrey),
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),

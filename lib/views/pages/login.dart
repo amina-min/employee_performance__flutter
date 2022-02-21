@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:emp_performance_tracker_flut/helper/http_helper.dart';
+import 'package:emp_performance_tracker_flut/main.dart';
 import 'package:emp_performance_tracker_flut/views/model/employee_payload.dart';
 import 'package:emp_performance_tracker_flut/views/pages/dashbord.dart';
 import 'package:flutter/material.dart';
@@ -56,72 +56,91 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 60.0, bottom: 8),
-            child: Text(
-              "Login Here",
-              style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blueGrey),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 60.0, right: 60),
-            child: TextFormField(
-              controller: _emailController,
-              decoration: InputDecoration(
-                  suffixIcon: Icon(
-                    Icons.mark_email_read,
-                    size: 20.0,
-                  ),
-                  border: UnderlineInputBorder(),
-                  labelText: "Enter your Email"),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 60.0, right: 60),
-            child: TextFormField(
-              controller: _passwordController,
-              decoration: InputDecoration(
-                  suffixIcon: Icon(
-                    Icons.password_outlined,
-                    size: 20.0,
-                  ),
-                  border: UnderlineInputBorder(),
-                  labelText: "Enter your Password"),
-            ),
-          ),
-          TextButton(
-            onPressed: () {
-              //forgot password screen
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blueGrey,
+      ),
+      home: Scaffold(
+        backgroundColor: const Color(0xffC4DFCB),
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            color: Colors.white,
+            onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MyApp()));
             },
-            child: const Text('Forgot Password'),
           ),
-          ElevatedButton(
-              onPressed: () {
-                login();
-                print(_emailController.value.text);
-              },
-              child: Text("Login")),
-          Padding(
-            padding: const EdgeInsets.only(left: 60.0),
-            child: Row(
-              children: [
-                Text('Does not have account?'),
-                TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => RegistrationPage()));
-                    },
-                    child: Text("registration here")),
-              ],
-            ),
-          )
-        ],
+          title: Text("Employee Performance Tracker"),
+        ),
+        body: Center(
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 60.0, bottom: 8),
+                child: Text(
+                  "Login Here",
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueGrey),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 60.0, right: 60),
+                child: TextFormField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                      suffixIcon: Icon(
+                        Icons.mark_email_read,
+                        size: 20.0,
+                      ),
+                      border: UnderlineInputBorder(),
+                      labelText: "Enter your Email"),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 60.0, right: 60),
+                child: TextFormField(
+                  controller: _passwordController,
+                  decoration: InputDecoration(
+                      suffixIcon: Icon(
+                        Icons.password_outlined,
+                        size: 20.0,
+                      ),
+                      border: UnderlineInputBorder(),
+                      labelText: "Enter your Password"),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  //forgot password screen
+                },
+                child: const Text('Forgot Password'),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    login();
+                    print(_emailController.value.text);
+                  },
+                  child: Text("Login")),
+              Padding(
+                padding: const EdgeInsets.only(left: 60.0),
+                child: Row(
+                  children: [
+                    Text('Does not have account?'),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => RegistrationPage()));
+                        },
+                        child: Text("registration here")),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

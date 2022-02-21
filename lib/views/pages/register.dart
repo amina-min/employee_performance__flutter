@@ -74,6 +74,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color(0xffC4DFCB),
         appBar: AppBar(
           title: Text("Employee Performance Tracker"),
         ),

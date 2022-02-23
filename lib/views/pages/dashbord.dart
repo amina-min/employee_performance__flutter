@@ -143,6 +143,7 @@ class _DashboardState extends State<Dashboard> {
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
+
                           info.noFeedbackCount.toString(),
                           style:
                               TextStyle(color: Colors.black.withOpacity(0.6)),

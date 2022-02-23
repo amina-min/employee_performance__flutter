@@ -23,3 +23,10 @@ Future<http.Response> signIn(EmployeePayload employee) async {
     return response;
 
 }
+
+Future<http.Response> getTotalInfo() async {
+  final response = await http.get(Uri.parse(totalInfoApi),
+      headers: requestHeaders);
+  return response;
+
+}

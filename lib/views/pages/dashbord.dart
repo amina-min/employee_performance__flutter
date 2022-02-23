@@ -1,9 +1,33 @@
+import 'dart:convert';
+
+import 'package:emp_performance_tracker_flut/helper/http_helper.dart';
+import 'package:emp_performance_tracker_flut/views/model/total_info.dart';
 import 'package:emp_performance_tracker_flut/views/pages/login.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
+
+  @override
+  _DashboardState createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  late TotalInfo info;
+
+  @override
+  void initState() {
+    getTotalInfo().then((res) {
+
+      Map<String, dynamic> map = jsonDecode(res.body);
+
+      setState(() {
+        info = TotalInfo.fromMap(map['data']);
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +39,9 @@ class Dashboard extends StatelessWidget {
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             color: Colors.white,
-            onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => LoginPage(
-
-                  )));
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => LoginPage()));
             },
           ),
           title: Text("Employee Performance Tracker"),
@@ -54,8 +76,9 @@ class Dashboard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-                          'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
-                          style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                          info.totalEmployeeCount.toString(),
+                          style:
+                              TextStyle(color: Colors.black.withOpacity(0.6)),
                         ),
                       ),
                       // ButtonBar(
@@ -96,8 +119,9 @@ class Dashboard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-                          'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
-                          style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                          info.totalFeedbackCount.toString(),
+                          style:
+                              TextStyle(color: Colors.black.withOpacity(0.6)),
                         ),
                       ),
                     ],
@@ -115,12 +139,13 @@ class Dashboard extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      ListTile(title: Text('Total feedback submitted')),
+                      ListTile(title: Text('Total no feedback count')),
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-                          'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
-                          style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                          info.noFeedbackCount.toString(),
+                          style:
+                              TextStyle(color: Colors.black.withOpacity(0.6)),
                         ),
                       ),
                     ],
@@ -129,7 +154,6 @@ class Dashboard extends StatelessWidget {
               ),
             ],
           ),
-
         ),
       ),
     );

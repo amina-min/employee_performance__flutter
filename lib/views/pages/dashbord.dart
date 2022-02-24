@@ -19,7 +19,6 @@ class _DashboardState extends State<Dashboard> {
   @override
   void initState() {
     getTotalInfo().then((res) {
-
       Map<String, dynamic> map = jsonDecode(res.body);
 
       setState(() {
@@ -37,14 +36,14 @@ class _DashboardState extends State<Dashboard> {
         backgroundColor: const Color(0xffC4DFCB),
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             color: Colors.white,
             onPressed: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => LoginPage()));
+                  .push(MaterialPageRoute(builder: (context) => const LoginPage()));
             },
           ),
-          title: Text("Employee Performance Tracker"),
+          title: const Text("Employee Performance Tracker"),
         ),
         body: Center(
           child: ListView(
@@ -72,34 +71,20 @@ class _DashboardState extends State<Dashboard> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      ListTile(title: Text('Total Employee')),
+                      ListTile(
+                          title: Text('Total Empiloyee',
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(0.7),
+                                  fontSize: 20))),
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
                           info.totalEmployeeCount.toString(),
-                          style:
-                              TextStyle(color: Colors.black.withOpacity(0.6)),
+                          style: TextStyle(
+                              color: Colors.black.withOpacity(0.6),
+                              fontSize: 38),
                         ),
                       ),
-                      // ButtonBar(
-                      //   alignment: MainAxisAlignment.start,
-                      //   children: [
-                      //     FlatButton(
-                      //       textColor: const Color(0xFF6200EE),
-                      //       onPressed: () {
-                      //         // Perform some action
-                      //       },
-                      //       child: const Text('ACTION 1'),
-                      //     ),
-                      //     FlatButton(
-                      //       textColor: const Color(0xFF6200EE),
-                      //       onPressed: () {
-                      //         // Perform some action
-                      //       },
-                      //       child: const Text('ACTION 2'),
-                      //     ),
-                      //   ],
-                      // ),
                     ],
                   ),
                 ),
@@ -115,13 +100,18 @@ class _DashboardState extends State<Dashboard> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      ListTile(title: Text('Total feedback submitted')),
+                      ListTile(
+                          title: Text('Total feedback submitted',
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(0.7),
+                                  fontSize: 20))),
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
                           info.totalFeedbackCount.toString(),
-                          style:
-                              TextStyle(color: Colors.black.withOpacity(0.6)),
+                          style: TextStyle(
+                              color: Colors.black.withOpacity(0.6),
+                              fontSize: 38),
                         ),
                       ),
                     ],
@@ -139,14 +129,18 @@ class _DashboardState extends State<Dashboard> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      ListTile(title: Text('Total no feedback count')),
+                      ListTile(
+                          title: Text('Total no feedback count',
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(0.7),
+                                  fontSize: 20))),
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-
                           info.noFeedbackCount.toString(),
-                          style:
-                              TextStyle(color: Colors.black.withOpacity(0.6)),
+                          style: TextStyle(
+                              color: Colors.black.withOpacity(0.6),
+                              fontSize: 38),
                         ),
                       ),
                     ],

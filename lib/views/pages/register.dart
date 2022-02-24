@@ -103,7 +103,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         size: 20.0,
                       ),
                       border: UnderlineInputBorder(),
-                      labelText: "Name"),
+                      labelText: "Name",),
                 ),
               ),
               Padding(

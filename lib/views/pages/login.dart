@@ -59,10 +59,10 @@ class _LoginPageState extends State<LoginPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.indigo,
       ),
       home: Scaffold(
-        backgroundColor: const Color(0xffC4DFCB),
+        //backgroundColor: const Color(0xffC4DFCB),
         appBar: AppBar(
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
-                      color: Colors.blueGrey),
+                      color: Colors.indigo),
                 ),
               ),
               Padding(
@@ -104,6 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.only(left: 60.0, right: 60),
                 child: TextFormField(
                   controller: _passwordController,
+                  obscureText: true,
                   decoration: InputDecoration(
                       suffixIcon: Icon(
                         Icons.password_outlined,

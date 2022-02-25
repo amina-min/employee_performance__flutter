@@ -33,7 +33,7 @@ class _DashboardState extends State<Dashboard> {
     return Container(
       color: const Color(0xffC4DFCB),
       child: Scaffold(
-        backgroundColor: const Color(0xffC4DFCB),
+        //backgroundColor: const Color(0xffC4DFCB),
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
@@ -56,16 +56,18 @@ class _DashboardState extends State<Dashboard> {
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blueGrey),
+                        color: Colors.indigo),
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Card(
+
                   // color: Colors.blueGrey,
                   elevation: 15.0,
                   shadowColor: Colors.blue,
+
                   shape: BeveledRectangleBorder(
                       borderRadius: BorderRadius.circular(5)),
                   child: Column(
@@ -143,8 +145,25 @@ class _DashboardState extends State<Dashboard> {
                               fontSize: 38),
                         ),
                       ),
+
                     ],
                   ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Image.network(
+                    'https://placeimg.com/640/480/any',
+                    fit: BoxFit.fill,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  elevation: 5,
+                  margin: EdgeInsets.all(10),
                 ),
               ),
             ],

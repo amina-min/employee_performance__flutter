@@ -39,8 +39,8 @@ class _DashboardState extends State<Dashboard> {
             icon: const Icon(Icons.arrow_back),
             color: Colors.white,
             onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => const LoginPage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const LoginPage()));
             },
           ),
           title: const Text("Employee Performance Tracker"),
@@ -63,11 +63,8 @@ class _DashboardState extends State<Dashboard> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Card(
-
-                  // color: Colors.blueGrey,
-                  elevation: 15.0,
+                  elevation: 10.0,
                   shadowColor: Colors.blue,
-
                   shape: BeveledRectangleBorder(
                       borderRadius: BorderRadius.circular(5)),
                   child: Column(
@@ -87,6 +84,15 @@ class _DashboardState extends State<Dashboard> {
                               fontSize: 38),
                         ),
                       ),
+                      Row(
+                        children: [
+                          Image.asset(
+                            'assets/images/offic.jpg',
+                            height: 350,
+                            width: 250,
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -95,7 +101,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.all(20.0),
                 child: Card(
                   // color: Colors.blueGrey,
-                  elevation: 15.0,
+                  elevation: 10.0,
                   shadowColor: Colors.blue,
                   shape: BeveledRectangleBorder(
                       borderRadius: BorderRadius.circular(5)),
@@ -124,7 +130,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.all(20.0),
                 child: Card(
                   // color: Colors.blueGrey,
-                  elevation: 15.0,
+                  elevation: 10.0,
                   shadowColor: Colors.blue,
                   shape: BeveledRectangleBorder(
                       borderRadius: BorderRadius.circular(5)),
@@ -145,7 +151,6 @@ class _DashboardState extends State<Dashboard> {
                               fontSize: 38),
                         ),
                       ),
-
                     ],
                   ),
                 ),

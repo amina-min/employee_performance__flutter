@@ -30,149 +30,174 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xffC4DFCB),
-      child: Scaffold(
-        //backgroundColor: const Color(0xffC4DFCB),
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            color: Colors.white,
-            onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const LoginPage()));
-            },
-          ),
-          title: const Text("Employee Performance Tracker"),
+    return Scaffold(
+      //backgroundColor: const Color(0xffC4DFCB),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          color: Colors.white,
+          onPressed: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const LoginPage()));
+          },
         ),
-        body: Center(
-          child: ListView(
-            children: [
-              const Center(
-                child: Padding(
-                  padding: EdgeInsets.only(top: 15.0),
-                  child: Text(
-                    "Employee details ",
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.indigo),
-                  ),
+        title: const Text("Employee Performance Tracker"),
+      ),
+      body: Center(
+        child: ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+            const Center(
+              child: Padding(
+                padding: EdgeInsets.only(top: 15.0),
+                child: Text(
+                  "Employee details ",
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Card(
-                  elevation: 10.0,
-                  shadowColor: Colors.blue,
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ListTile(
-                          title: Text('Total Empiloyee',
-                              style: TextStyle(
-                                  color: Colors.black.withOpacity(0.7),
-                                  fontSize: 20))),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Text(
-                          info.totalEmployeeCount.toString(),
-                          style: TextStyle(
-                              color: Colors.black.withOpacity(0.6),
-                              fontSize: 38),
-                        ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Card(
+                elevation: 10.0,
+                semanticContainer: true,
+                shadowColor: Colors.blue,
+                shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.circular(5)),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ListTile(
+                        title: Text('Total Employee',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.black.withOpacity(0.7),
+                                fontSize: 20))),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        info.totalEmployeeCount.toString(),
+                        style: TextStyle(
+                            color: Colors.black.withOpacity(0.6), fontSize: 38),
                       ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            'assets/images/offic.jpg',
-                            height: 350,
-                            width: 250,
-                          ),
-                        ],
+                    ),
+                    Image.asset(
+                      'assets/images/offic.jpg',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Card(
+                // color: Colors.blueGrey,
+                elevation: 10.0,
+                shadowColor: Colors.blue,
+                shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.circular(5)),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ListTile(
+                        title: Text('Total feedback submitted',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.black.withOpacity(0.7),
+                                fontSize: 20))),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        info.totalFeedbackCount.toString(),
+                        style: TextStyle(
+                            color: Colors.black.withOpacity(0.6), fontSize: 38),
                       ),
-                    ],
-                  ),
+                    ),
+                    Image.asset(
+                      'assets/images/offic.jpg',
+                    ),
+                  ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Card(
-                  // color: Colors.blueGrey,
-                  elevation: 10.0,
-                  shadowColor: Colors.blue,
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ListTile(
-                          title: Text('Total feedback submitted',
-                              style: TextStyle(
-                                  color: Colors.black.withOpacity(0.7),
-                                  fontSize: 20))),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Text(
-                          info.totalFeedbackCount.toString(),
-                          style: TextStyle(
-                              color: Colors.black.withOpacity(0.6),
-                              fontSize: 38),
-                        ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Card(
+                // color: Colors.blueGrey,
+                elevation: 10.0,
+                shadowColor: Colors.blue,
+                shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.circular(5)),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ListTile(
+                        title: Text('Total no feedback count',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.black.withOpacity(0.7),
+                                fontSize: 20))),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        info.noFeedbackCount.toString(),
+                        style: TextStyle(
+                            color: Colors.black.withOpacity(0.6), fontSize: 38),
                       ),
-                    ],
-                  ),
+                    ),
+                    Image.asset(
+                      'assets/images/offic.jpg',
+                    ),
+                  ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Card(
-                  // color: Colors.blueGrey,
-                  elevation: 10.0,
-                  shadowColor: Colors.blue,
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ListTile(
-                          title: Text('Total no feedback count',
-                              style: TextStyle(
-                                  color: Colors.black.withOpacity(0.7),
-                                  fontSize: 20))),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Text(
-                          info.noFeedbackCount.toString(),
-                          style: TextStyle(
-                              color: Colors.black.withOpacity(0.6),
-                              fontSize: 38),
-                        ),
-                      ),
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Card(
+                  elevation: 20,
+                  clipBehavior: Clip.antiAlias,
+                  child: Column(children: [
+                    Image.asset(
+                      'assets/images/offic.jpg',
+                    ),
+                    // ListTile(
+                    //   leading: Icon(Icons.arrow_drop_down_circle),
+                    //   title: const Text('Card title 1'),
+                    //   subtitle: Text(
+                    //     'Secondary Text',
+                    //     style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                    //   ),
+                    // ),
+                    // Padding(
+                    //   padding: const EdgeInsets.all(16.0),
+                    //   child: Text(
+                    //     'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
+                    //     style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                    //   ),
+                    // ),
+                  ])),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                semanticContainer: true,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: Image.network(
+                  'https://placeimg.com/640/480/any',
+                  fit: BoxFit.fill,
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Card(
-                  semanticContainer: true,
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  child: Image.network(
-                    'https://placeimg.com/640/480/any',
-                    fit: BoxFit.fill,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  elevation: 5,
-                  margin: EdgeInsets.all(10),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
                 ),
+                elevation: 5,
+                margin: EdgeInsets.all(10),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

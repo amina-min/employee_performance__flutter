@@ -17,6 +17,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+
+
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -54,6 +57,21 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+
+  @override
+  void initState() {
+    getTotalInfo().then((res) {
+      Map<String, dynamic> map = jsonDecode(res.body);
+
+      setState(() {
+        Dashboard();
+      });
+    });
+    super.initState();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -74,9 +92,16 @@ class _LoginPageState extends State<LoginPage> {
           ),
           title: Text("Employee Performance Tracker"),
         ),
-        body: Center(
+        body: SingleChildScrollView(
+          child: Center(
           child: Column(
             children: [
+               Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    new Image.asset("assets/images/offic.jpg")
+                  ]
+              ),
               const Padding(
                 padding: EdgeInsets.only(top: 60.0, bottom: 8),
                 child: Text(
@@ -114,6 +139,8 @@ class _LoginPageState extends State<LoginPage> {
                       labelText: "Enter your Password"),
                 ),
               ),
+
+
               TextButton(
                 onPressed: () {
                   //forgot password screen
@@ -142,6 +169,7 @@ class _LoginPageState extends State<LoginPage> {
               )
             ],
           ),
+            ),
         ),
       ),
     );

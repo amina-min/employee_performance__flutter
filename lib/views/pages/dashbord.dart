@@ -14,7 +14,11 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  late TotalInfo info;
+   TotalInfo info = TotalInfo(
+       noFeedbackCount: 0,
+     totalEmployeeCount: 0,
+     totalFeedbackCount: 0
+   );
 
   @override
   void initState() {
@@ -41,24 +45,24 @@ class _DashboardState extends State<Dashboard> {
                 MaterialPageRoute(builder: (context) => const LoginPage()));
           },
         ),
-        title: const Text("Employee Performance Tracker"),
+        title: const Text("Employee details"),
       ),
       body: Center(
         child: ListView(
           scrollDirection: Axis.vertical,
-          children: [
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.only(top: 15.0),
-                child: Text(
-                  "Employee details ",
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.indigo),
-                ),
-              ),
-            ),
+           children: [
+            // const Center(
+            //   child: Padding(
+            //     padding: EdgeInsets.only(top: 15.0),
+            //     child: Text(
+            //       "Employee details ",
+            //       style: TextStyle(
+            //           fontSize: 30,
+            //           fontWeight: FontWeight.bold,
+            //           color: Colors.indigo),
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Card(
@@ -77,7 +81,7 @@ class _DashboardState extends State<Dashboard> {
                                 color: Colors.black.withOpacity(0.7),
                                 fontSize: 20))),
                     Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.only(bottom: 3.0),
                       child: Text(
                         info.totalEmployeeCount.toString(),
                         style: TextStyle(
@@ -109,7 +113,7 @@ class _DashboardState extends State<Dashboard> {
                                 color: Colors.black.withOpacity(0.7),
                                 fontSize: 20))),
                     Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.only(bottom: 3.0),
                       child: Text(
                         info.totalFeedbackCount.toString(),
                         style: TextStyle(
@@ -126,11 +130,11 @@ class _DashboardState extends State<Dashboard> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Card(
-                // color: Colors.blueGrey,
+                //color: Colors.purple,
                 elevation: 10.0,
                 shadowColor: Colors.blue,
                 shape: BeveledRectangleBorder(
-                    borderRadius: BorderRadius.circular(5)),
+                    borderRadius: BorderRadius.circular(7)),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -141,7 +145,7 @@ class _DashboardState extends State<Dashboard> {
                                 color: Colors.black.withOpacity(0.7),
                                 fontSize: 20))),
                     Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.only(bottom: 3.0),
                       child: Text(
                         info.noFeedbackCount.toString(),
                         style: TextStyle(

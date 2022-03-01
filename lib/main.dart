@@ -1,3 +1,5 @@
+import 'package:emp_performance_tracker_flut/views/pages/Home.dart';
+import 'package:emp_performance_tracker_flut/views/pages/chart.dart';
 import 'package:emp_performance_tracker_flut/views/pages/dashbord.dart';
 import 'package:emp_performance_tracker_flut/views/pages/deshbord_request.dart';
 import 'package:emp_performance_tracker_flut/views/pages/login.dart';
@@ -6,6 +8,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -35,14 +38,18 @@ class _HomePageState extends State<HomePage> {
   int pageIndex = 0;
 
   final pages = [
-    const Page2(),
-    const Page3(),
+    const Home(),
+    ChartApp(),
     const ReguestPage(),
   ];
+
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+     // backgroundColor: Colors.grey,
+
       //backgroundColor: const Color(0xffC4DFCB),
       appBar: AppBar(
         leading: Icon(
@@ -62,6 +69,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: pages[pageIndex],
       bottomNavigationBar: buildMyNavBar(context),
+
     );
   }
 
@@ -78,30 +86,6 @@ class _HomePageState extends State<HomePage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-
-
-          IconButton(
-            enableFeedback: false,
-            onPressed: () {
-              setState(() {
-                pageIndex = 0;
-              });
-            },
-            icon: pageIndex == 0
-                ? const Icon(
-                    Icons.work_rounded,
-                    color: Colors.white,
-                    size: 35,
-                  )
-                : const Icon(
-                    Icons.work_outline_outlined,
-                    color: Colors.white,
-                    size: 35,
-                  ),
-          ),
-
-
-
           IconButton(
             enableFeedback: false,
             onPressed: () {
@@ -110,6 +94,28 @@ class _HomePageState extends State<HomePage> {
               });
             },
             icon: pageIndex == 1
+                ? const Icon(
+                    Icons.insert_chart,
+                    color: Colors.white,
+                    size: 35,
+                  )
+                : const Icon(
+                    Icons.add_chart,
+                    color: Colors.white,
+                    size: 35,
+                  ),
+          ),
+
+          IconButton(
+            enableFeedback: false,
+            onPressed: () {
+
+              setState(() {
+                Home();
+                pageIndex = 0;
+              });
+            },
+            icon: pageIndex == 0
                 ? const Icon(
                     Icons.home_filled,
                     color: Colors.white,
@@ -158,7 +164,7 @@ class Page2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xffC4DFCB),
+      //color: const Color(0xffC4DFCB),
       child: Center(),
     );
   }
@@ -170,7 +176,7 @@ class Page3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xffC4DFCB),
+     // color: const Color(0xffC4DFCB),
       child: Center(),
     );
   }

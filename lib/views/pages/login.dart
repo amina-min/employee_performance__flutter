@@ -96,14 +96,14 @@ class _LoginPageState extends State<LoginPage> {
           child: Center(
           child: Column(
             children: [
-               Column(
+              Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    new Image.asset("assets/images/offic.jpg")
+                    new Image.asset("assets/images/login.jpg")
                   ]
               ),
               const Padding(
-                padding: EdgeInsets.only(top: 60.0, bottom: 8),
+                padding: EdgeInsets.only( bottom: 3),
                 child: Text(
                   "Login Here",
                   style: TextStyle(
@@ -141,11 +141,14 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
 
-              TextButton(
-                onPressed: () {
-                  //forgot password screen
-                },
-                child: const Text('Forgot Password'),
+              // TextButton(
+              //   onPressed: () {
+              //     //forgot password screen
+              //   },
+              //   child: const Text('Forgot Password'),
+              // ),
+              SizedBox(
+                height: 10,
               ),
               ElevatedButton(
                   onPressed: () {
@@ -166,7 +169,8 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text("registration here")),
                   ],
                 ),
-              )
+              ),
+
             ],
           ),
             ),

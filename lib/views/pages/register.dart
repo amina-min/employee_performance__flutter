@@ -81,6 +81,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
         body: Form(
           child: ListView(
             children: [
+              // Column(
+              //     mainAxisAlignment: MainAxisAlignment.start,
+              //     children: [
+              //       new Image.asset("assets/images/sign_up.png")
+              //     ]
+              // ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Center(

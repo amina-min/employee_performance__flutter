@@ -66,7 +66,7 @@ class _DashboardState extends State<Dashboard> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Card(
-                elevation: 10.0,
+                elevation: 30.0,
                 semanticContainer: true,
                 shadowColor: Colors.blue,
                 shape: BeveledRectangleBorder(
@@ -89,17 +89,17 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                     Image.asset(
-                      'assets/images/offic.jpg',
+                      'assets/images/employees.jpg',
                     ),
                   ],
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 20),
               child: Card(
                 // color: Colors.blueGrey,
-                elevation: 10.0,
+                elevation: 30.0,
                 shadowColor: Colors.blue,
                 shape: BeveledRectangleBorder(
                     borderRadius: BorderRadius.circular(5)),
@@ -121,17 +121,18 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                     Image.asset(
-                      'assets/images/offic.jpg',
+                      'assets/images/d.png',
+
                     ),
                   ],
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 20),
               child: Card(
                 //color: Colors.purple,
-                elevation: 10.0,
+                elevation: 30.0,
                 shadowColor: Colors.blue,
                 shape: BeveledRectangleBorder(
                     borderRadius: BorderRadius.circular(7)),
@@ -153,54 +154,54 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                     Image.asset(
-                      'assets/images/offic.jpg',
+                      'assets/images/noFeedback.jpg',
                     ),
                   ],
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Card(
-                  elevation: 20,
-                  clipBehavior: Clip.antiAlias,
-                  child: Column(children: [
-                    Image.asset(
-                      'assets/images/offic.jpg',
-                    ),
-                    // ListTile(
-                    //   leading: Icon(Icons.arrow_drop_down_circle),
-                    //   title: const Text('Card title 1'),
-                    //   subtitle: Text(
-                    //     'Secondary Text',
-                    //     style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                    //   ),
-                    // ),
-                    // Padding(
-                    //   padding: const EdgeInsets.all(16.0),
-                    //   child: Text(
-                    //     'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
-                    //     style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                    //   ),
-                    // ),
-                  ])),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                semanticContainer: true,
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                child: Image.network(
-                  'https://placeimg.com/640/480/any',
-                  fit: BoxFit.fill,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                elevation: 5,
-                margin: EdgeInsets.all(10),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(20.0),
+            //   child: Card(
+            //       elevation: 20,
+            //       clipBehavior: Clip.antiAlias,
+            //       child: Column(children: [
+            //         Image.asset(
+            //           'assets/images/offic.jpg',
+            //         ),
+            //         // ListTile(
+            //         //   leading: Icon(Icons.arrow_drop_down_circle),
+            //         //   title: const Text('Card title 1'),
+            //         //   subtitle: Text(
+            //         //     'Secondary Text',
+            //         //     style: TextStyle(color: Colors.black.withOpacity(0.6)),
+            //         //   ),
+            //         // ),
+            //         // Padding(
+            //         //   padding: const EdgeInsets.all(16.0),
+            //         //   child: Text(
+            //         //     'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
+            //         //     style: TextStyle(color: Colors.black.withOpacity(0.6)),
+            //         //   ),
+            //         // ),
+            //       ])),
+            // ),
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: Card(
+            //     semanticContainer: true,
+            //     clipBehavior: Clip.antiAliasWithSaveLayer,
+            //     child: Image.network(
+            //       'https://placeimg.com/640/480/any',
+            //       fit: BoxFit.fill,
+            //     ),
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(10.0),
+            //     ),
+            //     elevation: 5,
+            //     margin: EdgeInsets.all(10),
+            //   ),
+            // ),
           ],
         ),
       ),

@@ -2,13 +2,13 @@ import 'package:emp_performance_tracker_flut/views/pages/Home.dart';
 import 'package:emp_performance_tracker_flut/views/pages/chart.dart';
 import 'package:emp_performance_tracker_flut/views/pages/dashbord.dart';
 import 'package:emp_performance_tracker_flut/views/pages/deshbord_request.dart';
+import 'package:emp_performance_tracker_flut/views/pages/drawer.dart';
 import 'package:emp_performance_tracker_flut/views/pages/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -43,19 +43,11 @@ class _HomePageState extends State<HomePage> {
     const ReguestPage(),
   ];
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     // backgroundColor: Colors.grey,
-
-      //backgroundColor: const Color(0xffC4DFCB),
+      drawer: drawer(),
       appBar: AppBar(
-        leading: Icon(
-          Icons.menu,
-          color: Colors.white,
-        ),
         title: Text(
           "Employee Performance Tracker",
           style: TextStyle(
@@ -65,11 +57,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         centerTitle: true,
-
       ),
       body: pages[pageIndex],
       bottomNavigationBar: buildMyNavBar(context),
-
     );
   }
 
@@ -105,11 +95,9 @@ class _HomePageState extends State<HomePage> {
                     size: 35,
                   ),
           ),
-
           IconButton(
             enableFeedback: false,
             onPressed: () {
-
               setState(() {
                 Home();
                 pageIndex = 0;
@@ -127,14 +115,10 @@ class _HomePageState extends State<HomePage> {
                     size: 35,
                   ),
           ),
-
-
-
           IconButton(
             enableFeedback: false,
             onPressed: () {
               setState(() {
-
                 pageIndex = 2;
               });
             },
@@ -176,9 +160,8 @@ class Page3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-     // color: const Color(0xffC4DFCB),
+      // color: const Color(0xffC4DFCB),
       child: Center(),
     );
   }
 }
-

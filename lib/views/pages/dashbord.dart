@@ -2,9 +2,14 @@ import 'dart:convert';
 
 import 'package:emp_performance_tracker_flut/helper/http_helper.dart';
 import 'package:emp_performance_tracker_flut/views/model/total_info.dart';
+import 'package:emp_performance_tracker_flut/views/pages/enddrawer.dart';
 import 'package:emp_performance_tracker_flut/views/pages/login.dart';
 
 import 'package:flutter/material.dart';
+
+import '../../main.dart';
+import 'Home.dart';
+import 'drawer.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -35,16 +40,11 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: enddrawer(),
       //backgroundColor: const Color(0xffC4DFCB),
+
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          color: Colors.white,
-          onPressed: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const LoginPage()));
-          },
-        ),
+
         title: const Text("Employee details"),
       ),
       body: Center(
@@ -208,3 +208,4 @@ class _DashboardState extends State<Dashboard> {
     );
   }
 }
+

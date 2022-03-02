@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
+import 'addEmployee.dart';
+import 'chart.dart';
 import 'login.dart';
 
 class enddrawer extends StatelessWidget {
@@ -19,7 +21,7 @@ class enddrawer extends StatelessWidget {
 
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.indigo.shade400
+              color: Colors.indigo
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -71,7 +73,8 @@ class enddrawer extends StatelessWidget {
             title: Text('Charts', style: TextStyle(fontSize: 18)),
             onTap: () {
               // Here you can give your route to navigate
-
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ChartApp()));
             },
           ),
 
@@ -80,7 +83,8 @@ class enddrawer extends StatelessWidget {
             title: Text('Add Employee', style: TextStyle(fontSize: 18)),
             onTap: () {
               // Here you can give your route to navigate
-
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => AddEmployeePage()));
             },
           ),
 

@@ -1,9 +1,8 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:emp_performance_tracker_flut/helper/http_helper.dart';
 import 'package:emp_performance_tracker_flut/views/model/addEmployee.dart';
-import 'package:emp_performance_tracker_flut/views/model/employee.dart';
+import 'package:emp_performance_tracker_flut/views/pages/dashbord.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -275,6 +274,8 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
                 child: ElevatedButton(
                     onPressed: () {
                       save();
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Dashboard()));
                     },
                     child: Text("submit")),
               ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../main.dart';
 import 'addEmployee.dart';
 import 'chart.dart';
+import 'location.dart';
 import 'login.dart';
 
 class enddrawer extends StatelessWidget {
@@ -77,6 +78,16 @@ class enddrawer extends StatelessWidget {
                   builder: (context) => ChartApp()));
             },
           ),
+          ListTile(
+            leading: Icon(Icons.location_on_outlined),
+            title: Text('location', style: TextStyle(fontSize: 18)),
+            onTap: () {
+              // Here you can give your route to navigate
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => EmployeesLocation()));
+            },
+          ),
+
 
           ListTile(
             leading: Icon(Icons.add_task_outlined),

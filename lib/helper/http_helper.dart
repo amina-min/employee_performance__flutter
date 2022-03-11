@@ -39,3 +39,11 @@ Future<http.Response> getTotalInfo() async {
   return response;
 
 }
+
+Future<http.Response> getEmployeeInfo() async {
+  final response = await http.get(Uri.parse(employeeInformationApi),
+      headers: requestHeaders);
+  return response;
+
+}
+

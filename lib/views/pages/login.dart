@@ -163,6 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                     Text('Does not have account?'),
                     TextButton(
                         onPressed: () {
+
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => RegistrationPage()));
                         },

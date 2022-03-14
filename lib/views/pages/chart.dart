@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:emp_performance_tracker_flut/helper/http_helper.dart';
 import 'package:emp_performance_tracker_flut/views/model/emoployee_rating.dart';
@@ -15,23 +16,42 @@ class ChartApp extends StatefulWidget {
 }
 
 class _ChartAppState extends State<ChartApp> {
-List<EmployeeRating> employeeRatings = [];
+  List<EmployeeRating> employeeRatings = [];
   @override
   void initState() {
     getEmployeeInfo().then((res) {
       Map<String, dynamic> map = jsonDecode(res.body);
-     // print("asdfasdfadsf");
+      // print("asdfasdfadsf");
       //print(map);
 
       var list = map['Data'] as List<dynamic>;
 
-   employeeRatings  = list.map((e) => EmployeeRating.fromMap(e)).toList();
+      employeeRatings = list.map((e) => EmployeeRating.fromMap(e)).toList();
 
+      int scors = 0;
+      for (int i = 0; i <= employeeRatings.length - 1; i++) {
+        EmployeeRating empr = employeeRatings[i];
 
+        scors += empr.requirUnderstandingScore +
+            empr.regardingTrainingScore +
+            empr.equiSoftHandleScore +
+            empr.rulsPolicyFolloScore +
+            empr.knoledgeShareWithCoworkersScore +
+            empr.coworkersTreatedRespectScore +
+            empr.acceptsCriticismScore +
+            empr.teamPlayerScore +
+            empr.teameResourcesShareScore +
+            empr.executesTaskScore +
+            empr.acceptsMistakeScore +
+            empr.canWorkWithoutSuperviseScore +
+            empr.capableTakingAnyDecisionScore +
+            empr.highPressureSiruationManageScore +
+            empr.motivateCoworkersToFinishScore;
+        print(empr.requirUnderstandingScore);
+      }
 
-      //print(employeeRatings[]);
-
-
+      print(scors);
+      // print(employeeRatings);
     });
     super.initState();
   }
@@ -147,6 +167,13 @@ List<EmployeeRating> employeeRatings = [];
       ChartData1(95.750),
       ChartData1(95.250)
     ];
+
+    final List<ChartData> chartData = [
+      ChartData('David', 25),
+      ChartData('Steve', 38),
+      ChartData('Jack', 34),
+      ChartData('Others', 52)
+    ];
     return Scaffold(
         appBar: AppBar(
           title: Text("Charts"),
@@ -193,6 +220,26 @@ List<EmployeeRating> employeeRatings = [];
               //     dataCount: 5,
               //   ),
               // ),
+              Container(
+                  child: SfCircularChart(
+                      series: <CircularSeries>[
+                        PieSeries<ChartData, String>(
+                            dataSource: chartData,
+                            xValueMapper: (ChartData data, _) => data.x,
+                            yValueMapper: (ChartData data, _) => data.y,
+// Radius of pie
+                            explode: true,
+// First segment will be exploded on initial rendering
+                            explodeIndex: 1,
+
+                            groupMode: CircularChartGroupMode.point,
+// As the grouping mode is point, 2 points will be grouped
+                            groupTo: 2,
+                            radius: '50%'
+                        )
+                      ]
+                  )
+              ),
 
               Expanded(
                   child: Container(
@@ -207,6 +254,8 @@ List<EmployeeRating> employeeRatings = [];
             ]),
           ),
         ));
+
+
   }
 }
 
@@ -220,4 +269,50 @@ class _SalesData {
 class ChartData1 {
   ChartData1(this.y);
   final double y;
+}
+
+
+
+// final List<ChartData> chartData = [
+//   ChartData('David', 25),
+//   ChartData('Steve', 38),
+//   ChartData('Jack', 34),
+//   ChartData('Others', 52)
+// ];
+// return Scaffold(
+// appBar: AppBar(
+// title: Text("Charts"),
+// ),
+// body: Center(
+// child: Container(
+// child: SfCircularChart(
+// series: <CircularSeries>[
+// PieSeries<ChartData, String>(
+// dataSource: chartData,
+// xValueMapper: (ChartData data, _) => data.x,
+// yValueMapper: (ChartData data, _) => data.y,
+// // Radius of pie
+// explode: true,
+// // First segment will be exploded on initial rendering
+// explodeIndex: 1,
+//
+// groupMode: CircularChartGroupMode.point,
+// // As the grouping mode is point, 2 points will be grouped
+// groupTo: 2,
+// radius: '50%'
+// )
+// ]
+// )
+// ),
+//
+//
+// )
+// );
+// }
+// }
+class ChartData {
+  ChartData(this.x, this.y);
+  final String x;
+  final double y;
+
 }

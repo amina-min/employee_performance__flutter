@@ -109,7 +109,7 @@ class ClockPainter extends CustomPainter {
         centerX + hourHight * cos(hourRad), centerY - hourHight * sin(hourRad));
 
     var fillBrush = Paint()
-      ..color = AppStyle.primaryColor
+      ..color = Colors.indigo.shade400
       ..strokeCap = StrokeCap.round;
 
     var centerDotBrush = Paint()..color = Color(0xFFEAECFF);

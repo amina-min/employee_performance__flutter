@@ -1,8 +1,6 @@
 import 'package:emp_performance_tracker_flut/utils/time_model.dart';
 import 'package:emp_performance_tracker_flut/views/pages/Home.dart';
 import 'package:emp_performance_tracker_flut/views/pages/chart.dart';
-import 'package:emp_performance_tracker_flut/views/pages/dashbord.dart';
-import 'package:emp_performance_tracker_flut/views/pages/deshbord_request.dart';
 import 'package:emp_performance_tracker_flut/views/pages/drawer.dart';
 import 'package:emp_performance_tracker_flut/views/pages/login.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +22,7 @@ class MyApp extends StatelessWidget {
         "/" : (context) => HomePage(),
         "/chart" : (context) => ChartApp(),
       },
-      initialRoute: "/chart",
+     // initialRoute: "/chart",
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
@@ -46,7 +44,7 @@ class _HomePageState extends State<HomePage> {
   final pages = [
     Home(TimeModel(12,0,0)),
     ChartApp(),
-    const ReguestPage(),
+    const LoginPage(),
   ];
 
   @override

@@ -81,17 +81,17 @@ class _LoginPageState extends State<LoginPage> {
       ),
       home: Scaffold(
         //backgroundColor: const Color(0xffC4DFCB),
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            color: Colors.white,
-            onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => MyApp()));
-            },
-          ),
-          title: Text("Employee Performance Tracker"),
-        ),
+        // appBar: AppBar(
+        //   leading: IconButton(
+        //     icon: Icon(Icons.arrow_back),
+        //     color: Colors.white,
+        //     onPressed: (){
+        //       Navigator.of(context).push(MaterialPageRoute(
+        //           builder: (context) => MyApp()));
+        //     },
+        //   ),
+        //   title: Text("Employee Performance Tracker"),
+        // ),
         body: SingleChildScrollView(
           child: Center(
           child: Column(
@@ -163,7 +163,6 @@ class _LoginPageState extends State<LoginPage> {
                     Text('Does not have account?'),
                     TextButton(
                         onPressed: () {
-
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => RegistrationPage()));
                         },

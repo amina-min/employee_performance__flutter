@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
+import 'GoogleMapPage.dart';
 import 'addEmployee.dart';
 import 'chart.dart';
-import 'location.dart';
+
 import 'login.dart';
 
 class enddrawer extends StatelessWidget {
@@ -84,7 +85,7 @@ class enddrawer extends StatelessWidget {
             onTap: () {
               // Here you can give your route to navigate
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => EmployeesLocation()));
+                  builder: (context) => GoogleMapPage()));
             },
           ),
 

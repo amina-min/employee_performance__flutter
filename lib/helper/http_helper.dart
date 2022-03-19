@@ -14,8 +14,7 @@ Future<http.Response> signUp(EmployeeModel employee) async {
   final response = await http.post(Uri.parse(registerApi),
       headers: requestHeaders, body: jsonEncode(employee.toMap()));
 
-    return response;
-
+  return response;
 }
 
 Future<http.Response> add(EmployeeAdd employee) async {
@@ -23,27 +22,28 @@ Future<http.Response> add(EmployeeAdd employee) async {
       headers: requestHeaders, body: jsonEncode(employee.toMap()));
 
   return response;
-
 }
 
 Future<http.Response> signIn(EmployeePayload employee) async {
   final response = await http.post(Uri.parse(loginApi),
       headers: requestHeaders, body: jsonEncode(employee.toMap()));
-    return response;
-
+  return response;
 }
 
 Future<http.Response> getTotalInfo() async {
-  final response = await http.get(Uri.parse(totalInfoApi),
-      headers: requestHeaders);
+  final response =
+      await http.get(Uri.parse(totalInfoApi), headers: requestHeaders);
   return response;
-
 }
 
 Future<http.Response> getEmployeeInfo() async {
   final response = await http.get(Uri.parse(employeeInformationApi),
       headers: requestHeaders);
   return response;
-
 }
 
+Future<http.Response> getEmployee() async {
+  final response =
+      await http.get(Uri.parse(getEmployeeApi), headers: requestHeaders);
+  return response;
+}

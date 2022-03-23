@@ -17,9 +17,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
-
-
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -57,20 +54,17 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-
   @override
   void initState() {
     getTotalInfo().then((res) {
       Map<String, dynamic> map = jsonDecode(res.body);
 
       setState(() {
-       // Dashboard();
+        // Dashboard();
       });
     });
     super.initState();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
         primarySwatch: Colors.indigo,
       ),
       home: Scaffold(
-        //backgroundColor: const Color(0xffC4DFCB),
+        // backgroundColor: const Color(0xffC4DFCB),
         // appBar: AppBar(
         //   leading: IconButton(
         //     icon: Icon(Icons.arrow_back),
@@ -94,86 +88,81 @@ class _LoginPageState extends State<LoginPage> {
         // ),
         body: SingleChildScrollView(
           child: Center(
-          child: Column(
-            children: [
-              Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    new Image.asset("assets/images/login.jpg")
-                  ]
-              ),
-              const Padding(
-                padding: EdgeInsets.only( bottom: 3),
-                child: Text(
-                  "Login Here",
-                  style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.indigo),
+            child: Column(
+              children: [
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [new Image.asset("assets/images/login.jpg")]),
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 3),
+                  child: Text(
+                    "Login Here",
+                    style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.indigo),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 60.0, right: 60),
-                child: TextFormField(
-                  controller: _emailController,
-                  decoration: InputDecoration(
-                      suffixIcon: Icon(
-                        Icons.mark_email_read,
-                        size: 20.0,
-                      ),
-                      border: UnderlineInputBorder(),
-                      labelText: "Enter your Email"),
+                Padding(
+                  padding: const EdgeInsets.only(left: 60.0, right: 60),
+                  child: TextFormField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                        suffixIcon: Icon(
+                          Icons.mark_email_read,
+                          size: 20.0,
+                        ),
+                        border: UnderlineInputBorder(),
+                        labelText: "Enter your Email"),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 60.0, right: 60),
-                child: TextFormField(
-                  controller: _passwordController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                      suffixIcon: Icon(
-                        Icons.password_outlined,
-                        size: 20.0,
-                      ),
-                      border: UnderlineInputBorder(),
-                      labelText: "Enter your Password"),
+                Padding(
+                  padding: const EdgeInsets.only(left: 60.0, right: 60),
+                  child: TextFormField(
+                    controller: _passwordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        suffixIcon: Icon(
+                          Icons.password_outlined,
+                          size: 20.0,
+                        ),
+                        border: UnderlineInputBorder(),
+                        labelText: "Enter your Password"),
+                  ),
                 ),
-              ),
 
-
-              // TextButton(
-              //   onPressed: () {
-              //     //forgot password screen
-              //   },
-              //   child: const Text('Forgot Password'),
-              // ),
-              SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    login();
-                    print(_emailController.value.text);
-                  },
-                  child: Text("Login")),
-              Padding(
-                padding: const EdgeInsets.only(left: 60.0),
-                child: Row(
-                  children: [
-                    Text('Does not have account?'),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => RegistrationPage()));
-                        },
-                        child: Text("registration here")),
-                  ],
+                // TextButton(
+                //   onPressed: () {
+                //     //forgot password screen
+                //   },
+                //   child: const Text('Forgot Password'),
+                // ),
+                SizedBox(
+                  height: 10,
                 ),
-              ),
-
-            ],
-          ),
+                ElevatedButton(
+                    onPressed: () {
+                      login();
+                      print(_emailController.value.text);
+                    },
+                    child: Text("Login")),
+                Padding(
+                  padding: const EdgeInsets.only(left: 60.0,),
+                  child: Row(
+                    children: [
+                      Text('Does not have account?'),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => RegistrationPage()));
+                          },
+                          child: Text("registration here")),
+                    ],
+                  ),
+                ),
+              ],
             ),
+          ),
         ),
       ),
     );

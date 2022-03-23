@@ -21,32 +21,32 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Container(
-            //   decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
-            //     BoxShadow(
-            //         color: AppStyle.primaryColor.withAlpha(80),
-            //         blurRadius: 50.0),
-            //   ]),
-            //   height: 300.0,
-            //   width: 300.0,
-            //   child: CustomPaint(
-            //     painter: ClockPainter(widget.time),
-            //   ),
+            Container(
+              // decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
+              //   BoxShadow(
+              //       color: AppStyle.primaryColor.withAlpha(80),
+              //       blurRadius: 50.0),
+              // ]),
+              // height: 300.0,
+              // width: 300.0,
+              // child: CustomPaint(
+              //   painter: ClockPainter(widget.time),
+              // ),
 
-              //  height: 180,
-              //  width: double.infinity,
-              //  //color: Colors.black12,
-              //  alignment: Alignment.center,
-              //  margin: EdgeInsets.only(top: 20),
-              //  padding: EdgeInsets.only(right:12,left: 12),
-              // // transform: Matrix4.rotationZ(0.1),
-              //  child:   Column(
-              //      mainAxisAlignment: MainAxisAlignment.start,
-              //      children: [
-              //        new Image.asset("assets/images/offic.jpg")
-              //      ]
-              //  ),
-            //),
+               height: 180,
+               width: double.infinity,
+               //color: Colors.black12,
+               alignment: Alignment.center,
+               margin: EdgeInsets.only(top: 20),
+               padding: EdgeInsets.only(right:12,left: 12),
+              // transform: Matrix4.rotationZ(0.1),
+               child:   Column(
+                   mainAxisAlignment: MainAxisAlignment.start,
+                   children: [
+                     new Image.asset("assets/images/offic.jpg")
+                   ]
+               ),
+            ),
             Container(
               height: 270,
               width: double.infinity,

@@ -43,7 +43,11 @@ Future<http.Response> getEmployeeInfo() async {
 }
 
 Future<http.Response> getEmployee() async {
-  final response =
-      await http.get(Uri.parse(getEmployeeApi), headers: requestHeaders);
+  final response = await http.get(Uri.parse(getEmployeeApi), headers: requestHeaders);
+  return response;
+}
+
+Future<http.Response> getLocation(int id) async {
+  final response = await http.get(Uri.parse(getLocationApi+id.toString()), headers: requestHeaders);
   return response;
 }

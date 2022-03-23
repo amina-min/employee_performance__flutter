@@ -40,6 +40,7 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
     String employeementHistory = _empHistoryController.value.text;
 
     var employees = EmployeeAdd(
+      id:0,
         firstname: firstname,
         lastname: lastname,
         email: email,

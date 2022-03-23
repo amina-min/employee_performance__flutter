@@ -1,4 +1,5 @@
 class EmployeeAdd{
+  late int id;
   late String firstname;
   late String lastname;
   late String email;
@@ -12,6 +13,7 @@ class EmployeeAdd{
 //<editor-fold desc="Data Methods">
 
   EmployeeAdd({
+    required this.id,
     required this.firstname,
     required this.lastname,
     required this.email,
@@ -28,6 +30,7 @@ class EmployeeAdd{
       identical(this, other) ||
       (other is EmployeeAdd &&
           runtimeType == other.runtimeType &&
+          id == other.id &&
           firstname == other.firstname &&
           lastname == other.lastname &&
           email == other.email &&
@@ -40,6 +43,7 @@ class EmployeeAdd{
 
   @override
   int get hashCode =>
+      id.hashCode ^
       firstname.hashCode ^
       lastname.hashCode ^
       email.hashCode ^
@@ -53,6 +57,7 @@ class EmployeeAdd{
   @override
   String toString() {
     return 'EmployeeAdd{' +
+        ' id: $id,' +
         ' firstname: $firstname,' +
         ' lastname: $lastname,' +
         ' email: $email,' +
@@ -66,6 +71,7 @@ class EmployeeAdd{
   }
 
   EmployeeAdd copyWith({
+    int? id,
     String? firstname,
     String? lastname,
     String? email,
@@ -77,6 +83,7 @@ class EmployeeAdd{
     String? employeementHistory,
   }) {
     return EmployeeAdd(
+      id: id ?? this.id,
       firstname: firstname ?? this.firstname,
       lastname: lastname ?? this.lastname,
       email: email ?? this.email,
@@ -91,6 +98,7 @@ class EmployeeAdd{
 
   Map<String, dynamic> toMap() {
     return {
+      'id': this.id,
       'firstname': this.firstname,
       'lastname': this.lastname,
       'email': this.email,
@@ -105,6 +113,7 @@ class EmployeeAdd{
 
   factory EmployeeAdd.fromMap(Map<String, dynamic> map) {
     return EmployeeAdd(
+      id: map['id'] as int,
       firstname: map['firstname'] as String,
       lastname: map['lastname'] as String,
       email: map['email'] as String,
